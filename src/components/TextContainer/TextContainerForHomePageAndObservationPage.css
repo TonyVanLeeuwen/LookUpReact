@@ -1,0 +1,24 @@
+.TextContainerForHomePageAndObservationPageContainer{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    background-color: black;
+}
+
+.textAndTitleContainer{
+    text-align: center;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.TextContainerTitle{
+    color: #DA8532;
+}
+
+.TextContainerText{
+    color: #FFFFFF;
+}

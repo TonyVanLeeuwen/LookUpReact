@@ -1,6 +1,7 @@
-button {
+.headerButton {
     border-radius: 10%;
     border: 1px solid #000;
     background-color: #DA8532;
     align-content: center;
+    padding-right: 10px;
 }

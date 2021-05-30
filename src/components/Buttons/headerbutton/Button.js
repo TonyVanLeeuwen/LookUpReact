@@ -3,7 +3,7 @@ import React from "react";
 
 function ClickTheButton ({someAction, buttonName}){
     return (
-        <button onClick={someAction}>{buttonName}</button>
+        <button onClick={someAction} className="headerButton">{buttonName}</button>
     )
 }
 

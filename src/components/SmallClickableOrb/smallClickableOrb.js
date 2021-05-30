@@ -1,5 +1,5 @@
 import React from "react";
-import {findAllByDisplayValue} from "@testing-library/react";
+import './SmallClickableOrb.css'
 
 
 function SmallClickableOrb({action}){
