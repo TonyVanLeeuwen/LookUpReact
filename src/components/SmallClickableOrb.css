@@ -1,0 +1,8 @@
+.SmallOrb{
+    border-radius: 50%;
+    border-color: grey;
+    cursor: pointer;
+    background-color: black;
+    height:2px;
+    width: 2px;
+}
