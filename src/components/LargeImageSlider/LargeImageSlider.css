@@ -1,0 +1,11 @@
+
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.LargeImageSliderImage{
+    max-width: 100%;
+    max-height: 500px;
+}

@@ -1,0 +1,9 @@
+.SignUpFormForm{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    vertical-align: 80%;
+}

@@ -1,0 +1,12 @@
+.ObservationFormContainer{
+    color: #FFFFFF;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+}
+
+.ObservationSubmitter{
+    color: #DA8532;
+    border-radius: 10%;
+
+}
