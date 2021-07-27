@@ -5,7 +5,7 @@ import Burger from "../Burger/Burger";
 import ClickTheButton from '../Buttons/headerbutton/Button';
 import AvatarButton from "../Avatar/Avatarbutton";
 
-import cometLogo from '/Users/fullred/WebstormProjects/lookupreactapp/src/assets/images/cometLogo.jpg';
+import cometLogo from '../../assets/cometLogo.jpg';
 
 function PageHeader(){
     const [loggedin, setloggedin] = useState(false);

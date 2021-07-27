@@ -30,7 +30,7 @@ function App() {
         <Login />
       </Route>
       <Route path="/observation">
-
+        <Observation/>
       </Route>
       <Route path="/postOverview">
 

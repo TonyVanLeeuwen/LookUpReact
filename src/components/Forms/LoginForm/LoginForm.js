@@ -6,52 +6,27 @@ import axios from "axios";
 
 function LoginForm() {
     const { handleSubmit, register } = useForm();
-
-    async function postData(dataArray) {
-        try {
-            const result = await axios.post("http://localhost:8080/users/uploadobservationwithimage", dataArray)
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-    function onFormSubmit(data) {
-        console.log(postData(data))
-    }
+    const Submit = (d) =>
+        axios
+            .post("http://localhost:8080/authenticate", d)
+            .then(response => {
+                console.log(response.data)
+            })
 
     return (
         <div className="LoginFormForm">
-            <form onSubmit={handleSubmit(onFormSubmit)} >
-                <fieldset>
-                    <legend>Login</legend>
-
-                    <label htmlFor="name">
-                        UserName
-                        <input
-                            type="text"
-                            id="name"
-                            {...register("name")}
-                        />
-                    </label>
-
-                    <label htmlFor="passWord">
-                        PassWord
-                        <input
-                            type="password"
-                            id="passWord"
-                        />
-                    </label>
-                </fieldset>
-
-                <fieldset>
-                    <button type="submit" className="formButton">
-                        Versturen
-                    </button>
-                </fieldset>
+            <form onSubmit={handleSubmit(Submit)} >
+                <label htmlFor="">Username:
+                    <input type="text" {...register("username")}/>
+                </label>
+                <label htmlFor="">Password:
+                    <input type="text" {...register("password")}/>
+                </label>
+                <input type="submit" value="submit"/>
             </form>
         </div>
-
     );
 }
+
 
 export default LoginForm;

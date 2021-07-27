@@ -1,7 +1,6 @@
 import React from "react";
 import './LargeImageSlider.css'
-import theBigMoon from '/Users/fullred/WebstormProjects/lookupreactapp/src/assets/images/the-big-moon.jpg'
-import SmallClickableOrb from "../SmallClickableOrb/smallClickableOrb";
+import theBigMoon from '../../assets/the-big-moon.jpg'
 
 
 function LargeImageSlider({image}) {

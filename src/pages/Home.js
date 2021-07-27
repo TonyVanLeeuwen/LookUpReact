@@ -1,11 +1,21 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import LargeImageSlider from "../components/LargeImageSlider/LargeImageSlider";
 import TextContainerForHomePageAndObservationPage from "../components/TextContainer/TextContainerForHomePageAndObservationPage";
 import BurgerMenu from "../components/BurgerMenu/BurgerMenu";
 
-
 function Home() {
     const [loggedin, setloggedin] = useState(false);
+    const [data, setData] = useState();
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:8080/files/allfiles")
+            .then(response => {
+                setData(response.data)
+                console.log(response)
+            })
+    }, [])
 
     if (!loggedin) {
         return (
