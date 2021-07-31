@@ -1,9 +1,13 @@
 import React from "react";
-import ObservationForm from "../components/Forms/CreateNewObservation/Observationform";
+import ImageObservationForm from "../components/Forms/CreateNewObservation/ImageObservationForm";
+import TextObservationForm from "../components/Forms/CreateNewObservation/TextObservationForm";
 
 function CreateNeo() {
     return(
-        <ObservationForm/>
+        <div>
+            <ImageObservationForm/>
+            <TextObservationForm/>
+        </div>
     )
 }
 

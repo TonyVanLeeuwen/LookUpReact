@@ -1,9 +1,14 @@
 import React from "react";
-import ObservationForm from "../components/Forms/CreateNewObservation/Observationform";
+import TextObservation from "../components/Observations/TextObservation";
+import ImageObservation from "../components/Observations/ImageObservation";
 
 function Observation() {
     return(
-        <ObservationForm/>
+        <div>
+            {/*<TextObservation/>*/}
+            <ImageObservation/>
+        </div>
+
     )
 }
 

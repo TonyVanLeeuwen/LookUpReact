@@ -33,10 +33,10 @@ function App() {
         <Observation/>
       </Route>
       <Route path="/postOverview">
-
+        <PostOverview/>
       </Route>
       <Route path="/profile">
-
+        <Profile/>
       </Route>
       <Route path="/signup">
         <SignUp/>
