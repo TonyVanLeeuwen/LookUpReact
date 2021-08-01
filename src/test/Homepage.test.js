@@ -1,7 +1,7 @@
 import React from "react";
 import {render, unmountComponentAtNode} from "react-dom";
 import {act} from "react-dom/test-utils"
-import AvatarButton from "../components/Avatar/Avatarbutton";
+import HomePage from "../components/Homepage/HomePage";
 
 let container = null;
 beforeEach(() => {
@@ -15,10 +15,14 @@ afterEach(() => {
     container = null;
 });
 
-it("should render a navigationlink", () => {
+it("should render a homepage", () => {
     act(() => {
-        render(<AvatarButton/>, container);
-    });
-    expect(container).toReturn()
-})
+        let didrender = false;
 
+        if(render(<HomePage/>, container)){
+            didrender = true
+        }
+        expect(didrender).toBeTruthy()
+    });
+
+})

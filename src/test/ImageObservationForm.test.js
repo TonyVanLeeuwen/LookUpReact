@@ -1,7 +1,7 @@
 import React from "react";
 import {render, unmountComponentAtNode} from "react-dom";
 import {act} from "react-dom/test-utils"
-import AvatarButton from "../components/Avatar/Avatarbutton";
+import ImageObservationForm from "../components/Forms/CreateNewObservation/ImageObservationForm";
 
 let container = null;
 beforeEach(() => {
@@ -15,10 +15,10 @@ afterEach(() => {
     container = null;
 });
 
-it("should render a navigationlink", () => {
+it("Observationform should exist if called", () => {
     act(() => {
-        render(<AvatarButton/>, container);
-    });
-    expect(container).toReturn()
-})
+        const form = ImageObservationForm
 
+        expect(form).toBeInstanceOf(Object)
+    });
+})

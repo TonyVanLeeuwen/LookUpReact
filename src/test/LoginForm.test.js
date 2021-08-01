@@ -1,7 +1,7 @@
 import React from "react";
 import {render, unmountComponentAtNode} from "react-dom";
 import {act} from "react-dom/test-utils"
-import AvatarButton from "../components/Avatar/Avatarbutton";
+import LoginForm from "../components/Forms/LoginForm/LoginForm";
 
 let container = null;
 beforeEach(() => {
@@ -15,10 +15,10 @@ afterEach(() => {
     container = null;
 });
 
-it("should render a navigationlink", () => {
+it("loginform should exist if called", () => {
     act(() => {
-        render(<AvatarButton/>, container);
-    });
-    expect(container).toReturn()
-})
+        const form = LoginForm
 
+        expect(form).toBeInstanceOf(Object)
+    });
+})

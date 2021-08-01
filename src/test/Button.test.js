@@ -1,7 +1,7 @@
 import React from "react";
 import {render, unmountComponentAtNode} from "react-dom";
 import {act} from "react-dom/test-utils"
-import AvatarButton from "../components/Avatar/Avatarbutton";
+import ClickTheButton from "../components/Buttons/headerbutton/Button";
 
 let container = null;
 beforeEach(() => {
@@ -15,10 +15,12 @@ afterEach(() => {
     container = null;
 });
 
-it("should render a navigationlink", () => {
+it("should render generic button", () => {
     act(() => {
-        render(<AvatarButton/>, container);
-    });
-    expect(container).toReturn()
-})
+        const mockCallBack = jest.fn();
 
+        const button = <ClickTheButton someAction={mockCallBack} buttonName="harold"/>
+
+        expect(button).toBeInstanceOf(Object)
+    });
+})
