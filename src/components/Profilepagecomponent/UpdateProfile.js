@@ -21,7 +21,7 @@ function UpdateProfile() {
             })
             .then(response => {
                 toggleSuccesfullUpdate(true)
-                console.log(jwttoken)
+                window.location = "http://localhost:3000/"
             })
             .catch(error => {
                 console.log(error)

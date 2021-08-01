@@ -1,7 +1,5 @@
 import React from "react";
 import './LargeImageSlider.css'
-import theBigMoon from '../../assets/the-big-moon.jpg'
-
 
 function LargeImageSlider({image}) {
     return (

@@ -10,7 +10,7 @@ function Profile() {
     if (localStorage.getItem("jwt")){
         if (!changeinfo){
             return(
-                <div>
+                <div className="page">
                     <Profileoverview/>
                     <button onClick={toggleChangeInfo} className="TextContainers">change info</button>
                 </div>
@@ -22,8 +22,10 @@ function Profile() {
         }
     } else {
         return(
-            <h3 className="TextContainers">Whoops, don't know how you got here, but please <NavLink to="/login">login</NavLink> first, else we don't know
-                what you wanted to see</h3>
+            <div className="page">
+                <h3 className="TextContainers">Whoops, don't know how you got here, but please <NavLink to="/login">login</NavLink> first, else we don't know
+                    what you wanted to see</h3>
+            </div>
         )
     }
 

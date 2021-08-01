@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import { useForm} from 'react-hook-form';
-import './LoginForm.css';
+import '../FormStyling.css';
 import axios from "axios";
 import {TempContext} from "../../../context/TempProvider";
 
@@ -21,15 +21,23 @@ function LoginForm() {
     }
 
     return (
-        <div className="LoginFormForm">
+        <div className="FormContainer">
             <form onSubmit={handleSubmit(Submit)} >
-                <label htmlFor="">Username:
-                    <input type="text" {...register("username")}/>
-                </label>
-                <label htmlFor="">Password:
-                    <input type="text" {...register("password")}/>
-                </label>
-                <input type="submit" value="submit"/>
+                <ul className="formwrapper">
+                    <li className="form-row">
+                        <label htmlFor="">Username:
+                        <input type="text" {...register("username")}/>
+                        </label>
+                    </li>
+                    <li className="form-row">
+                        <label htmlFor="">Password:
+                            <input type="password" {...register("password")}/>
+                        </label>
+                    </li>
+                    <li id="observationsubmitterlistitem">
+                        <input type="submit" value="submit" className="ObservationSubmitter"/>
+                    </li>
+                </ul>
             </form>
         </div>
     );

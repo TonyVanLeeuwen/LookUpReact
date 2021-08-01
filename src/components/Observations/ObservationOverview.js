@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from "react";
 import "./ObservationOverview.css"
 import axios from "axios"
+import {NavLink} from "react-router-dom";
 
 function ObservationOverview(){
     const [data, setData] = useState([])
-    const [observationtitle, setobservationTitle] = useState([])
-    const [observationURL, setObservationURL] = useState([])
 
     useEffect(() => {
         axios
@@ -19,9 +18,13 @@ function ObservationOverview(){
 
     return(
         <div className="observationlist">
-            <ol> {
-                observationURL.map(url => (
-                        <li key={url}><img src={url}/></li>
+            <ol className="imageList"> {
+                data.map(data => (
+                        <li key={data.id}><img className="ObservationInList" src={data.pictureDescriptionURL}
+                                               onClick={() => {
+                                                   localStorage.setItem("id", data.id)
+                                                   window.location = "http://localhost:3000/observation"
+                                               }}/><h4>click to enlarge</h4></li>
                     ))
                 }
             </ol>

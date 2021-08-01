@@ -2,11 +2,11 @@ import React from "react";
 import TextObservation from "../components/Observations/TextObservation";
 import ImageObservation from "../components/Observations/ImageObservation";
 
-function Observation() {
+function Observation({id}) {
     return(
-        <div>
+        <div className="page">
             {/*<TextObservation/>*/}
-            <ImageObservation/>
+            <ImageObservation id={id}/>
         </div>
 
     )

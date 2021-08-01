@@ -1,9 +1,12 @@
 import React from "react";
 import LoginForm from "../components/Forms/LoginForm/LoginForm";
+import "./Pages.css"
 
 function Login() {
     return(
-        <LoginForm/>
+        <div className="page">
+            <LoginForm/>
+        </div>
     )
 }
 

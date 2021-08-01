@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import './ObservationForm.css'
+import "../FormStyling.css"
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {NavLink} from "react-router-dom";
@@ -20,6 +20,7 @@ function ImageObservationForm() {
             })
             .then(response => {
                 setData(response.data)
+                window.location = "http://localhost:3000/postoverview"
             })
             .catch(error => {
                 console.log(error.response)
@@ -28,13 +29,18 @@ function ImageObservationForm() {
 
     if (localStorage.getItem("jwt")){
         return (
-            <div className="ObservationFormContainer">
+            <div className="FormContainer">
                 <form onSubmit={handleSubmit(Submit)}>
-                    <label htmlFor="">observation:
-                        <input type="text" {...register("title")}/>
-                        <input type="file" {...register("imagefile")}/>
-                    </label>
-                    <input type="submit" value="submit"/>
+                    <ul className="formwrapper">
+                        <li className="form-row">
+                            <label htmlFor="">observation:
+                                <input type="file" {...register("imagefile")}/>
+                            </label>
+                        </li>
+                        <li id="observationsubmitterlistitem">
+                            <input type="submit" value="submit" className="ObservationSubmitter"/>
+                        </li>
+                    </ul>
                 </form>
             </div>
         );

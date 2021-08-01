@@ -17,9 +17,8 @@ function PageHeader(){
                     <div className="nav-container">
                         <h2><NavLink to="/">LookUp</NavLink></h2>
                     </div></div>
-
                 <div className="pageHeaderCenterContainer">
-                    <NavLink to="/"><h4>NEO Posts</h4></NavLink>
+                    <NavLink to="/postOverview"><h4>NEO Posts</h4></NavLink>
                 </div>
 
                 <div className="pageHeaderRightContainer"><NavLink to="/createNEO"><h4>create an NEO</h4></NavLink>

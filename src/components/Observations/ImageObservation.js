@@ -4,10 +4,11 @@ import axios from "axios";
 
 function ImageObservation() {
     const [data, setData] = useState([])
+    const observationID = localStorage.getItem("id")
 
     useEffect(() => {
         axios
-            .get("http://localhost:8080/observation/id/1")
+            .get(`http://localhost:8080/observation/id/${observationID}`)
             .then(response => {
                 setData(response.data.body.pictureDescriptionURL)
             })

@@ -3,7 +3,9 @@ import ObservationOverview from "../components/Observations/ObservationOverview"
 
 function PostOverview() {
  return(
-     <ObservationOverview/>
+     <div className="page">
+      <ObservationOverview/>
+     </div>
  );
 }
 

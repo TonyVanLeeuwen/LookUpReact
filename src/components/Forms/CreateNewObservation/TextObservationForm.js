@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import './ObservationForm.css'
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {NavLink} from "react-router-dom";

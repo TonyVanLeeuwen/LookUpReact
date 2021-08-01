@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from 'react-hook-form';
-import './SignupForm.css'
+import "../FormStyling.css"
 import axios from "axios";
 
 function SignUpForm() {
@@ -19,18 +19,28 @@ function SignUpForm() {
 
 
     return (
-        <div className="LoginFormForm">
+        <div className="FormContainer">
             <form onSubmit={handleSubmit(Submit)} >
-                <label htmlFor="">name:
-                    <input type="text" {...register("name")}/>
-                </label>
-                <label htmlFor="">email:
-                    <input type="text" {...register("emailAdress")}/>
-                </label>
-                <label htmlFor="">Password:
-                    <input type="text" {...register("passWord")}/>
-                </label>
-                <input type="submit" value="submit"/>
+                <ul className="formwrapper">
+                    <li className="form-row">
+                        <label htmlFor="">name:
+                            <input type="text" {...register("name")}/>
+                        </label>
+                    </li>
+                    <li className="form-row">
+                        <label htmlFor="">email:
+                            <input type="text" {...register("emailAdress")}/>
+                        </label>
+                    </li>
+                    <li className="form-row">
+                        <label htmlFor="">Password:
+                            <input type="password" {...register("passWord")}/>
+                        </label>
+                    </li>
+                    <li id="observationsubmitterlistitem">
+                        <input type="submit" value="submit" className="ObservationSubmitter"/>
+                    </li>
+                </ul>
             </form>
         </div>
     );
