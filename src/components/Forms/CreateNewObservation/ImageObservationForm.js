@@ -6,6 +6,8 @@ import {useForm} from "react-hook-form";
 function ImageObservationForm() {
     const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYyODM0NjU3NSwiaWF0IjoxNjI3NDgyNTc1fQ.eUoG3pdHX1yQdZncCagavT4kAn9PDlV2Pp7PNjo31ss"
     const {handleSubmit, register} = useForm();
+    const [data, setData] = useState([])
+    let observationid;
 
     const Submit = (d) => {
         const formData = new FormData();
@@ -17,10 +19,10 @@ function ImageObservationForm() {
                 }
             })
             .then(response => {
-                console.log(response)
+                setData(response.data)
             })
             .catch(error => {
-                console.log(error.response.data)
+                console.log(error.response)
             })
     }
 
@@ -28,6 +30,7 @@ function ImageObservationForm() {
             <div className="ObservationFormContainer">
                 <form onSubmit={handleSubmit(Submit)}>
                     <label htmlFor="">observation:
+                        <input type="text" {...register("title")}/>
                         <input type="file" {...register("imagefile")}/>
                     </label>
                     <input type="submit" value="submit"/>

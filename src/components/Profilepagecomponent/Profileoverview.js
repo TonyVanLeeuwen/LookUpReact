@@ -13,14 +13,13 @@ function Profileoverview(){
             }
         })
             .then(response => {
-                console.log(response.data)
                 setData(response.data)
             })
     }, [])
 
     return(
         <div className="profiledata">
-            <p>naam: {data.name}</p>
+            <p>name: {data.name}</p>
             <p>email: {data.emailAdress}</p>
             <p>password: *******</p>
         </div>
