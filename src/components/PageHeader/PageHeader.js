@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import './pageheader.css'
 import {NavLink} from 'react-router-dom';
-import ClickTheButton from '../Buttons/headerbutton/Button';
 import AvatarButton from "../Avatar/Avatarbutton";
 import cometLogo from '../../assets/cometLogo.jpg';
 
