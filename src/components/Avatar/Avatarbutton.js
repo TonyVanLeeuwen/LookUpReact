@@ -1,17 +1,13 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './AvatarButton.css'
-
+import {NavLink} from "react-router-dom";
 
 function AvatarButton(){
-const [loggedIn, setLoggedIn] = useState(false)
+        const name = localStorage.getItem("name")
 
-    if (!loggedIn){
         return (
-            <div className="smallRoundedButton">LU</div>
+            <div className="smallRoundedButton"><NavLink to="profile" clasname="smallRoundedButton">{name}</NavLink></div>
         )
-    }
-
-
 }
 
 export default AvatarButton

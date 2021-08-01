@@ -1,63 +1,48 @@
 import React from "react";
 import { useForm } from 'react-hook-form';
-import './SignupForm.css'
+import "../FormStyling.css"
 import axios from "axios";
 
 function SignUpForm() {
     const { handleSubmit, register } = useForm();
+    const Submit = (d) =>
+        axios
+            .post("http://localhost:8080/user", d)
+            .then(response => {
+                console.log(response.data)
+                axios
+                    .post("http://localhost:8080/authenticate", d)
+                    .then(loginResponse => {
 
-    async function postData(dataArray) {
-        try {
-            const result = await axios.post("http://localhost:8080/users/uploadobservationwithimage", dataArray)
-        } catch (e) {
-            console.log(e)
-        }
-    }
+                    })
+            })
 
-    function onFormSubmit(data) {
-        console.log(postData(data))
-    }
 
     return (
-        <div className="SignUpFormForm">
-            <form onSubmit={handleSubmit(onFormSubmit)}>
-                <fieldset>
-                    <legend>SignUp</legend>
-
-                    <label htmlFor="name">
-                        UserName
-                        <input
-                            type="text"
-                            id="name"
-                            {...register("name")}
-                        />
-                    </label>
-
-                    <label htmlFor="emailAdress">
-                        PassWord
-                        <input
-                            type="email"
-                            id="emailAdress"
-                        />
-                    </label>
-
-                    <label htmlFor="passWord">
-                        PassWord
-                        <input
-                            type="password"
-                            id="passWord"
-                        />
-                    </label>
-                </fieldset>
-
-                <fieldset>
-                    <button type="submit" className="formButton">
-                        Versturen
-                    </button>
-                </fieldset>
+        <div className="FormContainer">
+            <form onSubmit={handleSubmit(Submit)} >
+                <ul className="formwrapper">
+                    <li className="form-row">
+                        <label htmlFor="">name:
+                            <input type="text" {...register("name")}/>
+                        </label>
+                    </li>
+                    <li className="form-row">
+                        <label htmlFor="">email:
+                            <input type="text" {...register("emailAdress")}/>
+                        </label>
+                    </li>
+                    <li className="form-row">
+                        <label htmlFor="">Password:
+                            <input type="password" {...register("passWord")}/>
+                        </label>
+                    </li>
+                    <li id="observationsubmitterlistitem">
+                        <input type="submit" value="submit" className="ObservationSubmitter"/>
+                    </li>
+                </ul>
             </form>
         </div>
-
     );
 }
 

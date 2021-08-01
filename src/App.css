@@ -5,3 +5,12 @@
     background-color: black;
     font-family: 'Libre Franklin', sans-serif;
 }
+
+input {
+  color: white;
+}
+
+a{
+  font-family: 'Roboto', sans-serif;
+  color: #DA8532;
+}

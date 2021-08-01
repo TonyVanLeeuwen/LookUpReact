@@ -3,6 +3,10 @@
     padding-right: 20px;
 }
 
+.pageHeaderBorder{
+    border: 1px solid #DA8532;
+}
+
 .pageHeadercontainer{
     background-color: black;
     display: flex;
