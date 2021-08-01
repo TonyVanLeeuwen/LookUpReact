@@ -1,3 +1,4 @@
+import React from "react";
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -11,14 +12,12 @@ import Observation from "./pages/Observation";
 import PostOverview from "./pages/PostOverview";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
-
 import PageHeader from "./components/PageHeader/PageHeader";
-import React from "react";
 
 function App() {
-  return (<Router>
+  return (
+      <Router>
     <PageHeader/>
-
     <Switch>
       <Route exact path="/">
         <Home />
@@ -42,7 +41,6 @@ function App() {
         <SignUp/>
       </Route>
     </Switch>
-
   </Router>)
 }
 

@@ -1,16 +1,15 @@
 import React, {useState} from "react";
 import './pageheader.css'
 import {NavLink} from 'react-router-dom';
-import Burger from "../Burger/Burger";
 import ClickTheButton from '../Buttons/headerbutton/Button';
 import AvatarButton from "../Avatar/Avatarbutton";
-
 import cometLogo from '../../assets/cometLogo.jpg';
 
 function PageHeader(){
-    const [loggedin, setloggedin] = useState(false);
+    const token = localStorage.getItem("jwt")
+    const name = localStorage.getItem("name")
 
-    if (!loggedin) {
+    if (token) {
         return(
             <nav className="pageHeadercontainer">
                 <div className="pageHeaderleftContainer">
@@ -23,7 +22,7 @@ function PageHeader(){
                     <NavLink to="/"><h4>NEO Posts</h4></NavLink>
                 </div>
 
-                <div className="pageHeaderRightContainer"><ClickTheButton someAction ={<NavLink to="/createNeo"/>} buttonName="create new Neo"/>
+                <div className="pageHeaderRightContainer"><NavLink to="/createNEO"><h4>create an NEO</h4></NavLink>
                     <AvatarButton/></div>
             </nav>
         )

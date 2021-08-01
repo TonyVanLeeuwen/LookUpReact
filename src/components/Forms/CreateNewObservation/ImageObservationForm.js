@@ -2,12 +2,12 @@ import React, {useState, useEffect} from "react";
 import './ObservationForm.css'
 import axios from "axios";
 import {useForm} from "react-hook-form";
+import {NavLink} from "react-router-dom";
 
 function ImageObservationForm() {
-    const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYyODM0NjU3NSwiaWF0IjoxNjI3NDgyNTc1fQ.eUoG3pdHX1yQdZncCagavT4kAn9PDlV2Pp7PNjo31ss"
+    const token = localStorage.getItem("jwt")
     const {handleSubmit, register} = useForm();
     const [data, setData] = useState([])
-    let observationid;
 
     const Submit = (d) => {
         const formData = new FormData();
@@ -26,6 +26,7 @@ function ImageObservationForm() {
             })
     }
 
+    if (localStorage.getItem("jwt")){
         return (
             <div className="ObservationFormContainer">
                 <form onSubmit={handleSubmit(Submit)}>
@@ -37,6 +38,14 @@ function ImageObservationForm() {
                 </form>
             </div>
         );
+    } else {
+        return(
+            <div className="ObservationFormContainer">
+                <h3>You don't seem to be logged in, do you want to <NavLink to="/login">login?</NavLink></h3>
+                    <h4> Or do you want to <NavLink to="/signUp">signUP?</NavLink></h4>
+            </div>
+        );
+    }
 }
 
 export default ImageObservationForm;

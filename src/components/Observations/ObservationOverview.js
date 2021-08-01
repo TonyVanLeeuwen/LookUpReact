@@ -17,7 +17,6 @@ function ObservationOverview(){
             })
     },[])
 
-    //TODO: different listitems for text or image (small image or the title of the observation)
     return(
         <div className="observationlist">
             <ol> {

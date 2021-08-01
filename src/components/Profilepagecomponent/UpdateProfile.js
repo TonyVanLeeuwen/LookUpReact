@@ -1,23 +1,27 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "./Profileoverview.css"
 import { useForm } from 'react-hook-form';
 import {NavLink} from 'react-router-dom'
+import {TempContext} from "../../context/TempProvider";
 import axios from "axios";
 
 
 function UpdateProfile() {
-    const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYyODM0NjU3NSwiaWF0IjoxNjI3NDgyNTc1fQ.eUoG3pdHX1yQdZncCagavT4kAn9PDlV2Pp7PNjo31ss"
+    const token = localStorage.getItem("jwt")
+    const name = localStorage.getItem("name")
     const {handleSubmit, register} = useForm();
     const [succesfullUpdate, toggleSuccesfullUpdate] = useState(false)
+    const {jwttoken} = useContext(TempContext)
 
     const Submit = (d) =>
         axios
-            .patch("http://localhost:8080/users/user/id/admin", d, {headers: {
+            .patch(`http://localhost:8080/users/user/id/${name}`, d, {headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
             .then(response => {
                 toggleSuccesfullUpdate(true)
+                console.log(jwttoken)
             })
             .catch(error => {
                 console.log(error)

@@ -1,24 +1,32 @@
 import React, {useState} from "react";
 import Profileoverview from "../components/Profilepagecomponent/Profileoverview";
-
-import {findAllByDisplayValue} from "@testing-library/react";
 import UpdateProfile from "../components/Profilepagecomponent/UpdateProfile";
+import "./Pages.css"
+import {NavLink} from "react-router-dom";
 
 function Profile() {
     const [changeinfo, toggleChangeInfo] = useState(false)
 
-    if (!changeinfo){
-        return(
-            <div>
-                <Profileoverview/>
-                <button onClick={toggleChangeInfo}>change info</button>
-            </div>
-        )
+    if (localStorage.getItem("jwt")){
+        if (!changeinfo){
+            return(
+                <div>
+                    <Profileoverview/>
+                    <button onClick={toggleChangeInfo} className="TextContainers">change info</button>
+                </div>
+            )
+        } else {
+            return(
+                <UpdateProfile/>
+            )
+        }
     } else {
-       return(
-            <UpdateProfile/>
+        return(
+            <h3 className="TextContainers">Whoops, don't know how you got here, but please <NavLink to="/login">login</NavLink> first, else we don't know
+                what you wanted to see</h3>
         )
     }
+
 
 }
 

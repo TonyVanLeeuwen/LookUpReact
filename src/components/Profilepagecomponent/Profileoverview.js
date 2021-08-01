@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from "react"
 import "./Profileoverview.css"
 import axios from "axios"
+import {NavLink} from "react-router-dom";
 
 function Profileoverview(){
-    const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYyODM0NjU3NSwiaWF0IjoxNjI3NDgyNTc1fQ.eUoG3pdHX1yQdZncCagavT4kAn9PDlV2Pp7PNjo31ss"
+    const token = localStorage.getItem("jwt")
+    const name = localStorage.getItem("name")
     const [data, setData] = useState([])
 
     useEffect(() => {
+        console.log(name)
         axios
-            .get("http://localhost:8080/users/user/name/admin", {headers: {
+            .get(`http://localhost:8080/users/user/name/${name}`, {headers: {
                 'Authorization': `Bearer ${token}`
             }
         })
@@ -17,13 +20,16 @@ function Profileoverview(){
             })
     }, [])
 
-    return(
-        <div className="profiledata">
-            <p>name: {data.name}</p>
-            <p>email: {data.emailAdress}</p>
-            <p>password: *******</p>
-        </div>
-    );
+    if (token){
+        return(
+            <div className="profiledata">
+                <p>name: {data.name}</p>
+                <p>email: {data.emailAdress}</p>
+                <p>password: *******</p>
+            </div>
+        );
+    }
+
 }
 
 export default Profileoverview;

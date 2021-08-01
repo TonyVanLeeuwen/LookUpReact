@@ -1,17 +1,24 @@
-import React from "react";
-import { useForm } from 'react-hook-form';
+import React, {useContext, useEffect} from "react";
+import { useForm} from 'react-hook-form';
 import './LoginForm.css';
 import axios from "axios";
-
+import {TempContext} from "../../../context/TempProvider";
 
 function LoginForm() {
-    const { handleSubmit, register } = useForm();
-    const Submit = (d) =>
+    let token = 0;
+    const {handleSubmit, register} = useForm();
+    const {setTokenAfterLoggingIn, jwtToken} = useContext(TempContext)
+    const Submit = (d) =>{
+
         axios
             .post("http://localhost:8080/authenticate", d)
             .then(response => {
-                console.log(response.data)
+                console.log(response)
+                token = response.data.jwt
+                setTokenAfterLoggingIn(token, d.username)
+                console.log(`this is the ${localStorage.getItem("jwt")} this is their name ${localStorage.getItem("name")}`)
             })
+    }
 
     return (
         <div className="LoginFormForm">
